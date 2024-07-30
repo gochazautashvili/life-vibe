@@ -11,7 +11,7 @@ import { useState } from "react";
 const Chat = () => {
   const chatClient = useInitializeChatClient();
   const { resolvedTheme } = useTheme();
-  const [sidebarOpen, setSideBarOpen] = useState(false);
+  const [sidebarOpen, setSideBarOpen] = useState(true);
 
   if (!chatClient) {
     return <Loader2 className="mx-auto my-3 animate-spin" />;
