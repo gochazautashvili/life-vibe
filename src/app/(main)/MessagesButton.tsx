@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import kyInstance from "@/lib/ky";
 import { MessagesCountInfo } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
-import { Bell } from "lucide-react";
+import { MessageSquareIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -29,7 +29,7 @@ const MessagesButton = ({ initialState }: Props) => {
     >
       <Link href="/messages">
         <div className="relative">
-          <Bell />
+          <MessageSquareIcon />
           {!!data.unreadCount && (
             <span className="absolute -right-1 -top-1 rounded-full bg-primary px-1 text-sm font-medium tabular-nums text-primary-foreground">
               {data.unreadCount}
