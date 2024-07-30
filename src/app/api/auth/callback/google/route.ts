@@ -70,6 +70,7 @@ export async function GET(req: NextRequest) {
           id: userId,
           username,
           displayName: googleUser.name,
+          googleId: googleUser.id,
         },
       });
 
