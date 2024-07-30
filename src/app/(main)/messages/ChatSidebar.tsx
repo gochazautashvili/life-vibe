@@ -49,7 +49,7 @@ const ChatSidebar = ({ onClose, open }: Props) => {
     <div
       className={cn(
         "flex size-full flex-col border-e md:w-72",
-        open ? "flex" : "hidden",
+        open ? "flex" : "hidden md:flex",
       )}
     >
       <MenuHeader onClose={onClose} />

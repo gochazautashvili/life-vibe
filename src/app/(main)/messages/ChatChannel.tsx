@@ -17,7 +17,7 @@ interface Props {
 
 const ChatChannel = ({ open, openSidebar }: Props) => {
   return (
-    <div className={cn("w-full md:block", !open && "hidden")}>
+    <div className={cn("w-full", !open && "hidden md:block")}>
       <Channel>
         <Window>
           <CustomChanelHeader openSidebar={openSidebar} />

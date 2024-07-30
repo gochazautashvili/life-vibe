@@ -33,7 +33,7 @@ const Chat = () => {
             onClose={() => setSideBarOpen(false)}
           />
           <ChatChannel
-            open={sidebarOpen}
+            open={!sidebarOpen}
             openSidebar={() => setSideBarOpen(true)}
           />
         </StreamChat>
