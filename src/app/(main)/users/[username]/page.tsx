@@ -1,18 +1,18 @@
 import { validateRequest } from "@/auth";
 import FollowButton from "@/components/FollowButton";
 import FollowerCount from "@/components/FollowerCount";
-import { Button } from "@/components/ui/button";
 import UserAvatar from "@/components/UserAvatar";
 import db from "@/lib/db";
 import { FollowerInfo, getUserDataSelect, UserData } from "@/lib/types";
 import { formateNumber } from "@/lib/utils";
 import { formatDate } from "date-fns";
 import { notFound } from "next/navigation";
-import { cache } from "react";
+import { cache, Suspense } from "react";
 import UserPosts from "./UserPosts";
 import TrendsSidebar from "@/components/TrendsSidebar";
 import Linkify from "@/components/Linkify";
 import EditProfileButton from "./EditProfileButton";
+import { Loader2 } from "lucide-react";
 
 interface Props {
   params: { username: string };
@@ -56,7 +56,9 @@ const UserPage = async ({ params: { username } }: Props) => {
   return (
     <main className="flex w-full min-w-0 gap-5">
       <div className="w-full min-w-0 space-y-5">
-        <UserProfile user={user} loggedInUserId={loggedInUser.id} />
+        <Suspense fallback={<Loader2 className="animate-spin" />}>
+          <UserProfile user={user} loggedInUserId={loggedInUser.id} />
+        </Suspense>
         <div className="rounded-2xl bg-card p-5 shadow-sm">
           <h2 className="text-center text-2xl font-bold">
             {user.displayName}&apos;s posts
