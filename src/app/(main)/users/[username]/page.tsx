@@ -7,12 +7,11 @@ import { FollowerInfo, getUserDataSelect, UserData } from "@/lib/types";
 import { formateNumber } from "@/lib/utils";
 import { formatDate } from "date-fns";
 import { notFound } from "next/navigation";
-import { cache, Suspense } from "react";
+import { cache } from "react";
 import UserPosts from "./UserPosts";
 import TrendsSidebar from "@/components/TrendsSidebar";
 import Linkify from "@/components/Linkify";
 import EditProfileButton from "./EditProfileButton";
-import { Loader2 } from "lucide-react";
 
 interface Props {
   params: { username: string };
@@ -56,9 +55,7 @@ const UserPage = async ({ params: { username } }: Props) => {
   return (
     <main className="flex w-full min-w-0 gap-5">
       <div className="w-full min-w-0 space-y-5">
-        <Suspense fallback={<Loader2 className="animate-spin" />}>
-          <UserProfile user={user} loggedInUserId={loggedInUser.id} />
-        </Suspense>
+        <UserProfile user={user} loggedInUserId={loggedInUser.id} />
         <div className="rounded-2xl bg-card p-5 shadow-sm">
           <h2 className="text-center text-2xl font-bold">
             {user.displayName}&apos;s posts
