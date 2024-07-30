@@ -80,7 +80,7 @@ const UserProfile = ({ loggedInUserId, user }: UserProfileProps) => {
   const followerInfo: FollowerInfo = {
     followers: user._count.followers,
     isFollowedByUser: user.followers.some(
-      ({ followerId }) => followerId === user.id,
+      ({ followerId }) => followerId === loggedInUserId,
     ),
   };
 

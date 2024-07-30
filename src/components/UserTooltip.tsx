@@ -24,7 +24,7 @@ const UserTooltip = ({ user, children }: UserTooltipProps) => {
   const followerState: FollowerInfo = {
     followers: user._count.followers,
     isFollowedByUser: user.followers.some(
-      ({ followerId }) => followerId === user.id,
+      ({ followerId }) => followerId === loggedInUser.id,
     ),
   };
 

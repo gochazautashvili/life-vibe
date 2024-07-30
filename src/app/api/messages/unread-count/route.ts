@@ -20,6 +20,8 @@ export async function GET() {
 
     return Response.json(data);
   } catch (error) {
+    console.log(error);
+    
     return Response.json({ error: "Something went wrong!" }, { status: 500 });
   }
 }
