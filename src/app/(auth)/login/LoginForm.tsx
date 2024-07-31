@@ -15,6 +15,7 @@ import { useState, useTransition } from "react";
 import { PasswordInput } from "@/components/PasswordInput";
 import LoadingButton from "@/components/LoadingButton";
 import { login } from "./actions";
+import LoginDemoUser from "../LoginDemoUser";
 
 const LoginForm = () => {
   const [error, setError] = useState<string>();
@@ -69,6 +70,7 @@ const LoginForm = () => {
         <LoadingButton loading={isPending} type="submit" className="w-full">
           Log in
         </LoadingButton>
+        <LoginDemoUser />
       </form>
     </Form>
   );
